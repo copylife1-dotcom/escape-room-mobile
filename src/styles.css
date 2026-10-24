@@ -24,9 +24,20 @@ h1, h2 { font-family: 'Noto Serif KR', serif; }
 .primary-button { width: 100%; max-width: 380px; min-height: 58px; margin: 0 auto; border: 1px solid #a1844e; color: #e7dec7; background: linear-gradient(135deg, rgba(121, 91, 43, .38), rgba(49, 41, 28, .4)); letter-spacing: .18em; cursor: pointer; box-shadow: inset 0 0 20px rgba(180, 142, 71, .08), 0 8px 28px #050505; }
 .primary-button span { margin-left: 18px; color: #b89654; }
 .primary-button:active { transform: translateY(1px); background-color: rgba(141, 108, 53, .35); }
+.home-actions { position: relative; z-index: 1; display: grid; width: 100%; max-width: 380px; margin: 0 auto; gap: 10px; }
+.secondary-button { min-height: 48px; border: 1px solid rgba(161, 132, 78, .5); color: #bbae91; background: rgba(19, 20, 18, .7); letter-spacing: .08em; cursor: pointer; }
+.text-button { padding: 9px; border: 0; color: #736b5d; background: transparent; font-size: 11px; text-decoration: underline; cursor: pointer; }
+.secondary-button:disabled, .text-button:disabled { opacity: .32; cursor: default; }
+.saved-progress { position: relative; z-index: 1; margin: 15px 0 0; color: #8c805f; font: 10px Arial, sans-serif; }
 .offline-note { margin: 20px auto 0; color: #5f625e; font: 10px Arial, sans-serif; }
 .offline-note span { display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: #75866f; box-shadow: 0 0 6px #75866f; }
 .game-screen { padding-left: 20px; padding-right: 20px; }
+.navigation-header { position: relative; z-index: 1; display: grid; grid-template-columns: 42px 1fr 42px; align-items: center; gap: 10px; margin: 0 0 14px; text-align: center; }
+.navigation-header strong { display: block; color: #d8d0bf; font-size: 15px; letter-spacing: .12em; }
+.navigation-header span { display: block; margin-top: 4px; color: #887752; font: 9px Arial, sans-serif; letter-spacing: .12em; }
+.icon-button { width: 42px; height: 42px; border: 1px solid rgba(157, 130, 78, .35); border-radius: 50%; color: #aa915e; background: rgba(18, 20, 19, .8); font-size: 20px; cursor: pointer; }
+.progress-track { position: relative; z-index: 1; height: 2px; margin: 0 2px 22px; overflow: hidden; background: #282824; }
+.progress-track i { display: block; height: 100%; background: #ae8e51; transition: width .45s ease; box-shadow: 0 0 8px #ae8e51; }
 .game-header { display: flex; align-items: center; justify-content: space-between; margin: 8px 4px 28px; }
 .game-header h1 { margin: 0; color: #dfd8c8; font-size: 22px; letter-spacing: .14em; }
 .progress-ring { width: 50px; height: 50px; display: grid; place-content: center; grid-auto-flow: column; align-items: baseline; border: 1px solid #715f3e; border-radius: 50%; color: #827c6f; font: 10px Arial, sans-serif; }
@@ -52,10 +63,34 @@ form label { display: block; margin-bottom: 9px; color: #777568; text-align: lef
 .hint-button { margin-top: 20px; padding: 8px 10px; border: 0; color: #8f7950; background: transparent; font-size: 11px; cursor: pointer; }
 .hint-button span { margin-right: 5px; }
 .hint { margin: 7px 0 0; padding: 10px; color: #979081; border: 1px dashed #514832; font-size: 11px; line-height: 1.6; }
+.hint b { display: block; margin-bottom: 5px; color: #af925b; font: 9px Arial, sans-serif; letter-spacing: .1em; }
+.hints-section { margin-top: 12px; }
+.next-button { width: 100%; min-height: 49px; margin-top: 14px; border: 1px solid #7c6842; color: #e1d5ba; background: linear-gradient(135deg, #514126, #30281c); cursor: pointer; letter-spacing: .08em; }
+.next-button span { margin-left: 10px; color: #c8a866; }
 .result { display: flex; align-items: center; gap: 13px; padding: 14px; text-align: left; border: 1px solid #526747; background: rgba(45, 69, 38, .18); }
 .result-icon { width: 35px; height: 35px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid #748e67; border-radius: 50%; color: #9ab28e; }
 .result strong { color: #afc4a4; font-size: 13px; }
 .result p { margin: 4px 0 0; color: #7d8877; font-size: 10px; }
+.puzzle-dots { position: relative; z-index: 1; display: flex; justify-content: center; gap: 11px; margin-top: 22px; }
+.puzzle-dots button { width: 36px; height: 36px; border: 1px solid #4e493d; border-radius: 50%; color: #777368; background: #111313; font: 9px Arial, sans-serif; cursor: pointer; }
+.puzzle-dots button.active { color: #e2cf9e; border-color: #a2844e; box-shadow: 0 0 10px rgba(162, 132, 78, .2); }
+.puzzle-dots button.done { color: #9aad90; border-color: #58674f; }
+.puzzle-dots button:disabled { opacity: .35; cursor: not-allowed; }
+.ending-screen { display: grid; place-items: center; text-align: center; }
+.ending-content { position: relative; z-index: 2; width: 100%; }
+.ending-content h1 { margin: 10px 0 18px; color: #e9dfc8; font-size: 37px; letter-spacing: .1em; }
+.ending-content > p:not(.eyebrow) { color: #9b9587; font-size: 13px; line-height: 2; }
+.ending-sigil { width: 90px; height: 90px; margin: 0 auto 28px; display: grid; place-items: center; border: 1px solid #9a804b; border-radius: 50%; color: #d1af68; font-size: 34px; box-shadow: 0 0 35px rgba(184, 148, 78, .2), inset 0 0 25px rgba(184, 148, 78, .1); }
+.completion-count { margin: 28px auto 36px; padding: 17px; max-width: 300px; border-top: 1px solid #4f4634; border-bottom: 1px solid #4f4634; }
+.completion-count strong { display: block; color: #caa65d; font-size: 26px; }
+.completion-count span { color: #777266; font-size: 10px; }
+.ending-content .secondary-button, .ending-content .primary-button { display: block; width: 100%; max-width: 380px; margin: 10px auto 0; }
+.celebration { position: absolute; inset: 15% 8% auto; color: #9f8149; font-size: 22px; letter-spacing: 1.6em; animation: shimmer 2s ease-in-out infinite alternate; }
+.celebration i { display: inline-block; font-style: normal; animation: float 2.4s ease-in-out infinite alternate; }
+.screen-enter { animation: screen-in .35s ease-out both; }
+@keyframes screen-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes shimmer { from { opacity: .25; } to { opacity: .8; } }
+@keyframes float { from { transform: translateY(-8px) rotate(0); } to { transform: translateY(10px) rotate(30deg); } }
 @media (min-width: 500px) and (min-height: 700px) { .app-shell { padding-left: 48px; padding-right: 48px; } }
 @media (max-height: 650px) { .sigil { width: 76px; height: 76px; margin-bottom: 18px; } .sigil::before { width: 62px; height: 62px; } .sigil::after { width: 46px; height: 46px; } .intro-copy { margin-bottom: 28px; } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
